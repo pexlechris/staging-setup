@@ -30,7 +30,7 @@
 
 ```bash
 # Κατεβάζει το script
-wget -q -O staging-setup.sh https://raw.githubusercontent.com/Digital-Challenge/staging-setup/main/staging-setup.sh
+wget -q -O staging-setup.sh https://raw.githubusercontent.com/pexlechris/staging-setup/main/staging-setup.sh
 
 # Δίνει δικαιώματα εκτέλεσης
 chmod +x staging-setup.sh
@@ -47,7 +47,7 @@ chmod +x staging-setup.sh
 
 ### Σημαντικές Σημειώσεις
 
-- Το script αλλάζει το email του διαχειριστή στη διεύθυνση **dichadev@gmail.com**.  
+- Το script αλλάζει το email του διαχειριστή στη διεύθυνση **pexlechris@gmail.com**.  
   Αν θέλετε να χρησιμοποιήσετε διαφορετικό email, θα πρέπει να τροποποιήσετε το αρχείο `staging-setup.php` **στο repository**, να δημιουργήσετε ένα νέο branch και να ανοίξετε ένα **Pull Request** προς το κύριο branch.  
   Η αλλαγή θα ισχύει για όλα τα **μελλοντικά staging sites** που θα δημιουργηθούν με αυτό το setup.
 
@@ -57,5 +57,5 @@ chmod +x staging-setup.sh
 
 - Το MU-Plugin που περιορίζει τα εξερχόμενα emails εγκαθίσταται στη διαδρομή  
   `wp-content/mu-plugins/restrict-outgoing-emails.php`.  
-  Αν θέλετε να επιτρέψετε άλλους παραλήπτες εκτός από **@dicha.gr** και **dichadev@gmail.com**, τροποποιήστε το αρχείο **στο repository**, σε νέο branch, και ανοίξτε Pull Request.  
+  Αν θέλετε να επιτρέψετε άλλους παραλήπτες εκτός από **@pexlechris.dev** και **dichadev@gmail.com**, τροποποιήστε το αρχείο **στο repository**, σε νέο branch, και ανοίξτε Pull Request.  
   Η αλλαγή θα εφαρμόζεται μόνο σε **μελλοντικά staging sites** που χρησιμοποιούν αυτό το setup.
