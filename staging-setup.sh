@@ -7,7 +7,7 @@
 set -euo pipefail
 
 # — Configuration —
-REPO_URL="https://raw.githubusercontent.com/Digital-Challenge/staging-setup/main"
+REPO_URL="https://raw.githubusercontent.com/pexlechris/staging-setup/main"
 PHP_SCRIPT="staging-setup.php"
 SH_SCRIPT="$(basename "$0")"
 
