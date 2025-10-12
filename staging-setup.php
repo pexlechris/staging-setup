@@ -336,12 +336,12 @@ function dc_staging_disable_order_auto_sync_to_erp(){
 
 function dc_staging_change_admin_email(){
 
-	update_option( 'admin_email', 'dichadev@gmail.com' );
+	update_option( 'admin_email', 'pexlechris@gmail.com' );
 
-	if ( get_option( 'admin_email') == 'dichadev@gmail.com' ) {
-		echo "Admin email is now dichadev@gmail.com";
+	if ( get_option( 'admin_email') == 'pexlechris@gmail.com' ) {
+		echo "Admin email is now pexlechris@gmail.com";
 	} else {
-		echo "FAIL: Fail to change admin email to dichadev@gmail.com";
+		echo "FAIL: Fail to change admin email to pexlechris@gmail.com";
 	}
 }
 
@@ -399,7 +399,7 @@ function dc_staging_install_mu_plugin_to_restrict_outgoing_emails(){
 <?php
 /**
  * Plugin Name: DC Staging Email Restriction
- * Description: Allow outgoing emails only to @dicha.gr and dichadev@gmail.com (including aliases).
+ * Description: Allow outgoing emails only to @pexlechris.dev and pexlechris@gmail.com (including aliases).
  */
 
 add_filter('wp_mail', 'dc_staging_remove_outside_dicha_email_addresses', 999);
@@ -412,7 +412,7 @@ function dc_staging_remove_outside_dicha_email_addresses( $mail_data ){
 add_filter('pre_wp_mail', 'dc_staging_restrict_outgoing_emails', 999, 2);
 function dc_staging_restrict_outgoing_emails( $default_value, $mail_data ){
 	if ( empty($mail_data['to']) ) {
-		do_action('wp_mail_failed', new WP_Error('wp_mail_failed','Outgoing emails are restricted. Only @dicha.gr addresses and dichadev@gmail.com (including its aliases) are allowed.', $mail_data));
+		do_action('wp_mail_failed', new WP_Error('wp_mail_failed','Outgoing emails are restricted. Only @pexlechris.dev addresses and pexlechris@gmail.com (including its aliases) are allowed.', $mail_data));
 		return false;
 	}
 
@@ -422,8 +422,8 @@ function dc_staging_restrict_outgoing_emails( $default_value, $mail_data ){
 function dc_staging_is_email_address_allowed( $email_address ) {
 	$email_address = strtolower(trim($email_address));
 
-	// Allow *@dicha.gr using preg_match
-	if ( preg_match('/@dicha\.gr$/', $email_address) ) {
+	// Allow *@pexlechris.dev using preg_match
+	if ( preg_match('/@pexlechris\.dev$/', $email_address) ) {
 		return true;
 	}
 
@@ -434,7 +434,7 @@ function dc_staging_is_email_address_allowed( $email_address ) {
 		$local_part = str_replace('.', '', $local_part);
 		$local_part = preg_replace('/\+.*/', '', $local_part);
 
-		if ( $local_part === 'dichadev' ) { // only allow aliases of dichadev@gmail.com
+		if ( $local_part === 'pexlechris' ) { // only allow aliases of pexlechris@gmail.com
 			return true;
 		}
 	}
@@ -446,7 +446,7 @@ add_action('admin_notices', 'dc_staging_email_restriction_notice');
 function dc_staging_email_restriction_notice() {
 	?>
 	<div class="notice notice-info">
-		<p><strong>Outgoing emails are restricted.</strong> Only <code>@dicha.gr</code> addresses and <code>dichadev@gmail.com</code> (including its aliases) are allowed.</p>
+		<p><strong>Outgoing emails are restricted.</strong> Only <code>@pexlechris.dev</code> addresses and <code>pexlechris@gmail.com</code> (including its aliases) are allowed.</p>
 	</div>
 	<?php
 }
@@ -461,7 +461,7 @@ PHP;
 	$data_written = file_put_contents($mu_plugin_path, $plugin_code);
 
 	if($data_written){
-		echo 'MU Plugin that restricts outgoing emails has been installed! Only @dicha.gr addresses and dichadev@gmail.com (including its aliases) are allowed.';
+		echo 'MU Plugin that restricts outgoing emails has been installed! Only @pexlechris.dev addresses and pexlechris@gmail.com (including its aliases) are allowed.';
 	}else{
 		echo 'FAIL: Could not install MU plugin that restricts outgoing emails!';
 	}
