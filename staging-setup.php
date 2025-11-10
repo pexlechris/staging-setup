@@ -402,8 +402,8 @@ function dc_staging_install_mu_plugin_to_restrict_outgoing_emails(){
  * Description: Allow outgoing emails only to @pexlechris.dev and pexlechris@gmail.com (including aliases).
  */
 
-add_filter('wp_mail', 'dc_staging_remove_outside_dicha_email_addresses', 999);
-function dc_staging_remove_outside_dicha_email_addresses( $mail_data ){
+add_filter('wp_mail', 'dc_staging_remove_outside_my_email_addresses', 999);
+function dc_staging_remove_outside_my_email_addresses( $mail_data ){
     $to = !is_array( $mail_data['to'] ) ? explode(',', $mail_data['to'] ) : $mail_data['to'];
 	$mail_data['to'] = array_filter( $to, 'dc_staging_is_email_address_allowed' );
 	return $mail_data;
