@@ -7,22 +7,17 @@ ini_set('log_errors', '0');
 error_reporting(0);
 
 // Extracts the main domain (e.g. example.com, example.co.uk)
-function extract_domain($domain){
-    // Regex to capture the root domain at the end of the string
-    if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,})$/i", $domain, $matches)) {
-        return $matches['domain'];
+function extract_subdomains($host) {
+    $host = strtolower($host);
+    $parts = explode('.', $host);
+
+    if (count($parts) < 3) {
+        // Δεν υπάρχουν subdomains
+        return '';
     }
 
-    // Fallback: return the input if no match found
-    return $domain;
-}
-
-function extract_subdomains($domain){
-    $original = $domain;
-    $domain = extract_domain($original);
-
-    // Get everything before the main domain (if exists)
-    return rtrim(strstr($original, $domain, true), '.');
+    // Παίρνουμε όλα εκτός από τα 2 τελευταία (domain + tld)
+    return implode('.', array_slice($parts, 0, -2));
 }
 
 $host = parse_url( get_option('siteurl'), PHP_URL_HOST );
