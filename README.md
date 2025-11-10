@@ -15,7 +15,7 @@
 -   **Διακοπή Συγχρονισμού ERP**: Απενεργοποιεί τον αυτόματο συγχρονισμό παραγγελιών με συστήματα ERP.
 -   **Αλλαγή Email Διαχειριστή**: Αλλάζει το email του διαχειριστή του WordPress.
 -   **Αλλαγή Email Παραληπτών WooCommerce**: Αλλάζει τον παραλήπτη για όλα τα email ειδοποιήσεων του WooCommerce στο email του διαχειριστή.
--   **Περιορισμός Εξερχόμενων Emails**: Εγκαθιστά αυτόματα ένα MU-Plugin που επιτρέπει την αποστολή emails μόνο προς διευθύνσεις `@dicha.gr` και προς το `dichadev@gmail.com` (καθώς και aliases του).
+-   **Περιορισμός Εξερχόμενων Emails**: Εγκαθιστά αυτόματα ένα MU-Plugin που επιτρέπει την αποστολή emails μόνο προς διευθύνσεις `@pexlechris.dev` και προς το `pexlechris@gmail.com` (καθώς και aliases του).
 
 ## Προαπαιτούμενα
 
@@ -57,5 +57,5 @@ chmod +x staging-setup.sh
 
 - Το MU-Plugin που περιορίζει τα εξερχόμενα emails εγκαθίσταται στη διαδρομή  
   `wp-content/mu-plugins/restrict-outgoing-emails.php`.  
-  Αν θέλετε να επιτρέψετε άλλους παραλήπτες εκτός από **@pexlechris.dev** και **dichadev@gmail.com**, τροποποιήστε το αρχείο **στο repository**, σε νέο branch, και ανοίξτε Pull Request.  
+  Αν θέλετε να επιτρέψετε άλλους παραλήπτες εκτός από **@pexlechris.dev** και **pexlechris@gmail.com**, τροποποιήστε το αρχείο **στο repository**, σε νέο branch, και ανοίξτε Pull Request.  
   Η αλλαγή θα εφαρμόζεται μόνο σε **μελλοντικά staging sites** που χρησιμοποιούν αυτό το setup.
