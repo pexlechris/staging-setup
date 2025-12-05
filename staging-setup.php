@@ -33,6 +33,7 @@ if ( !$subdomains || $subdomains === 'www' ) {
 
 
 $functions = [
+	'dc_staging_install_mu_plugin_to_restrict_outgoing_emails',
 	'dc_staging_add_staging_prefix_to_site_title',
 	'dc_staging_enable_coming_soon',
 	'dc_staging_enable_no_index',
@@ -42,7 +43,6 @@ $functions = [
 	'dc_staging_disable_order_auto_sync_to_erp',
 	'dc_staging_change_admin_email',
 	'dc_staging_change_wc_email_recipients',
-	'dc_staging_install_mu_plugin_to_restrict_outgoing_emails',
 ];
 
 
