@@ -20,7 +20,8 @@ function extract_subdomains($host) {
     return implode('.', array_slice($parts, 0, -2));
 }
 
-$host = parse_url( get_option('siteurl'), PHP_URL_HOST );
+$site_url = get_option('siteurl');
+$host = parse_url( $site_url, PHP_URL_HOST );
 $subdomains = extract_subdomains($host);
 $is_staging = stripos($site_url, 'staging') !== false;
 
