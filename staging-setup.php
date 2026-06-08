@@ -1,6 +1,15 @@
 <?php
 require_once __DIR__ . '/wp-load.php';
 
+$is_cli = (php_sapi_name() === 'cli');
+function change_line(){
+	if ($GLOBALS['is_cli']) {
+		echo "\n";
+	} else {
+		echo "<br>";
+	}
+}
+
 // PHP-level suppression
 ini_set('display_errors', '0');
 ini_set('log_errors', '0');
@@ -8,16 +17,16 @@ error_reporting(0);
 
 // Extracts the main domain (e.g. example.com, example.co.uk)
 function extract_subdomains($host) {
-    $host = strtolower($host);
-    $parts = explode('.', $host);
+	$host = strtolower($host);
+	$parts = explode('.', $host);
 
-    if (count($parts) < 3) {
-        // Δεν υπάρχουν subdomains
-        return '';
-    }
+	if (count($parts) < 3) {
+		// Δεν υπάρχουν subdomains
+		return '';
+	}
 
-    // Παίρνουμε όλα εκτός από τα 2 τελευταία (domain + tld)
-    return implode('.', array_slice($parts, 0, -2));
+	// Παίρνουμε όλα εκτός από τα 2 τελευταία (domain + tld)
+	return implode('.', array_slice($parts, 0, -2));
 }
 
 $site_url = get_option('siteurl');
@@ -28,8 +37,8 @@ $is_staging = stripos($site_url, 'staging') !== false;
 // We don't want the code to run if is LIVE site (aka if is there is no subdomain or if it is 'www' & no "staging" keyword exists in URL)
 if ( (!$subdomains || $subdomains === 'www') && !$is_staging ) {
 	echo 'SOS: You cannot run this script in LIVE site!';
-	echo "\n";
-    return;
+	change_line();
+	return;
 }
 
 
@@ -49,7 +58,7 @@ $functions = [
 
 
 // Your logic
-echo "\n";
+change_line();
 
 foreach ($functions as $function) {
 	ob_start();
@@ -64,8 +73,8 @@ foreach ($functions as $function) {
 
 	if( trim($echo) ){
 		echo "-> WP: $echo";
-		echo "\n";
-		echo "\n";
+		change_line();
+		change_line();
 	}
 }
 
@@ -283,7 +292,7 @@ function dc_staging_deactivate_plugins(){
 			} catch ( Throwable $e ) {
 				echo "FAIL: Exception deactivating $name plugin: {$e->getMessage()}\nTrace:\n{$e->getTraceAsString()}";
 			}
-			echo "\n";
+			change_line();
 
 		}
 	}
